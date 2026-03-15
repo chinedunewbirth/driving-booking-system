@@ -14,7 +14,8 @@ def add_student():
     data = request.json
     student = Student(
         name=data["name"],
-        email=data["email"]
+        email=data["email"],
+        phone=data["phone"] 
     )
     db.session.add(student)
     db.session.commit()
@@ -24,7 +25,7 @@ def add_student():
 def list_students():
     students = Student.query.all()
     return jsonify([
-        {"id": s.id, "name": s.name, "email": s.email, "lessons": s.lessons_completed}
+        {"id": s.id, "name": s.name, "email": s.email, "phone": s.phone, "lessons": s.lessons_completed}
         for s in students
     ])
     return home()
