@@ -15,7 +15,7 @@ def add_student():
     student = Student(
         name=data["name"],
         email=data["email"],
-        phone=data["phone"] 
+        phone=data["phone"]
     )
     db.session.add(student)
     db.session.commit()
